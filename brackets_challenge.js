@@ -8,31 +8,31 @@ let test3 = '{[}()]';
 let test4 = '';
 let test5 = '({()()}[({)])}';
 
-var eliminaPares = function(cadena){
-    const pares = ['()', '[]', '{}']
+var deletePairs = function(text){
+    const pairs = ['()', '[]', '{}']
 
-    if (cadena.length <= 0)        
-        return 'CADENA VACIA'
+    if (text.length <= 0)        
+        return 'EMPTY STRING'
 
-    for (let index = 0; index < cadena.length; index++) {
+    for (let index = 0; index < text.length; index++) {
 
-        if(cadena[index + 1] == undefined)
-            return 'CADENA INCORRECTA';
+        if(text[index + 1] == undefined)
+            return 'WRONG STRING';
 
-        const element = cadena[index] + cadena[index + 1];
-        var existe = pares.find(x => x == element);
+        const element = text[index] + text[index + 1];
+        var existe = pairs.find(x => x == element);
 
         if(existe != undefined){
-            cadena = cadena.slice(0, index) + cadena.slice(index + 2);
+            text = text.slice(0, index) + text.slice(index + 2);
             index = -1;
         }
     }
 
-    return 'CADENA CORRECTA';
+    return 'CORRECT STRING';
 };
 
-console.log(eliminaPares(test1));
-console.log(eliminaPares(test2));
-console.log(eliminaPares(test3));
-console.log(eliminaPares(test4));
-console.log(eliminaPares(test5));
+console.log(deletePairs(test1));
+console.log(deletePairs(test2));
+console.log(deletePairs(test3));
+console.log(deletePairs(test4));
+console.log(deletePairs(test5));
